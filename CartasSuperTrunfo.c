@@ -4,33 +4,33 @@
 // Tema 1 - Cadastro das Cartas
 
 //declaraçao das variaveis
-    char codigo[4] = "";
-    char nome[25] = "";
-    int populacao = 0;
-    float area = 0.0;
-    float pib = 0.0;
-    int qtdePontosTuristicos = 0;
-    float densidadePopulacional = 0;
-    float pibPerCapita = 0;
-    char opcao = 'S';
+char estado[25] = "";
+char codigo[4] = "";
+char nome[25] = "";
+unsigned int populacao = 0;
+float area = 0.0;
+double pib = 0.0;
+int qtdePontosTuristicos = 0;
+float densidadePopulacional = 0;
+float pibPerCapita = 0;
+char opcao = 'S';
 
 //solicita e armazena os dados
 void cadastrarCarta(){
-    printf("\nInforme o código (Formato A01): ");
-    //sobre formato utilizado nos scanf: pula whitespace (' ', '\t' e '\n')
-    //lê um caracter X que não é whitespace
-    //pula todos os caracteres até achar um '\n' (o '\n' fica no buffer e é consumido no próximo scanf)
-    scanf(" %s%*[^\n]", &codigo); 
+    printf("\nInforme o Estado: ");
+    scanf(" %[^\n]", estado); //lê caracteres enquanto nao forem quebra de linha
+    printf("Informe o código (Formato A01): ");
+    scanf(" %[^\n]", codigo); 
     printf("Informe o nome da cidade: ");
-    scanf(" %s%*[^\n]", &nome);
+    scanf(" %[^\n]", nome);
     printf("Informe o número da população: ");
-    scanf(" %d%*[^\n]", &populacao);
+    scanf(" %u", &populacao);
     printf("Informe a área em km²: ");
-    scanf(" %f%*[^\n]", &area);
+    scanf(" %f", &area);
     printf("Informe o PIB: ");
-    scanf(" %f%*[^\n]", &pib);
+    scanf(" %lf", &pib);
     printf("Informe a quantidade de pontos turísticos: ");
-    scanf(" %d%*[^\n]", &qtdePontosTuristicos);
+    scanf(" %d", &qtdePontosTuristicos);
 }
 
 //calcular densidade populacional e pib per capita
@@ -41,16 +41,18 @@ void calcularDados(){
 
 // Exibição dos Dados das Cartas:
 void exibirCarta(){
-    printf("\nCarta cadastrada com sucesso:\n");
+    printf("\n------------------------------------------------\n");
+    printf("Carta cadastrada com sucesso:\n");
+    printf("Estado: %s\n", estado);
     printf("Código: %s\n", codigo);
     printf("Nome: %s\n", nome);
-    printf("População: %d\n", populacao);
-    printf("Área: %.2f\n", area);
-    printf("PIB: %.2f\n", pib);
+    printf("População: %u\n", populacao);
+    printf("Área: %.2f km²\n", area);
+    printf("PIB: R$ %.2lf\n", pib);
     printf("Quantidade de pontos turísticos: %d\n", qtdePontosTuristicos);
-    printf("Densidade Populacional: %.2f\n", densidadePopulacional);
-    printf("PIB per capita: %.2f\n", pibPerCapita);
-    printf("---------------------------------------------------------\n");
+    printf("Densidade Populacional: %.2f pessoas/km²\n", densidadePopulacional);
+    printf("PIB per capita: R$ %.2f\n", pibPerCapita);
+    printf("------------------------------------------------\n");
 }
 
 int main() {
@@ -61,7 +63,7 @@ int main() {
         calcularDados();
         exibirCarta();
 
-        printf("\nCadastrar nova carta? (Digite S para Sim e N para Não): ");
+        printf("\nCadastrar nova carta? (Digite 'S' para Sim e 'N' para Não): ");
         scanf(" %c", &opcao);
     } while(opcao == 'S' || opcao == 's');
 
