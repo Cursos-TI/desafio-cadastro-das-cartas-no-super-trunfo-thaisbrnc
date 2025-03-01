@@ -1,3 +1,18 @@
+REQUISITOS PARA EXECUTAR O PROGRAMA EM IDE:
+
+1. Possuir um compilador instalado:
+[Pre-built Toolchains](https://www.mingw-w64.org/downloads/)
+2. Possuir IDE instalada:
+(VS Code, Code::Blocks ou Dev-C++)
+
+
+ORIENTAÇÕES PARA EXECUTAR O PROGRAMA NO GITHUB:
+
+1. Na página inicial desse repositório, aba "Code", clique no botão "Code", vá na aba "Codespaces" e clique para abrir o codespace ativo.
+2. Procure pelo ícone de Executar/Depurar na barra lateral esquerda ou ao lado direito superior e clique no botão "Executar e Depurar", selecione GCC e o programa será executado.
+
+_________________________________________________________________________________________________________________________
+
 # ⚠️ Importante!!!
 Criamos um novo link para o primeiro desafio porque o link original apresentou problemas. Quem já completou o desafio pode continuar usando o link original para enviar seu repositório. Se você ainda não começou o desafio, utilize o novo link.
 
